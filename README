@@ -1,0 +1,13 @@
+srt-shift is a simple command-line script for shifting the times in a .srt
+subtitle file.  It worked on the two or three files I tried, but let me know
+if it doesn't work for you.
+
+Usage examples:
+
+- To shift the subtitles backward 5 seconds:
+    srt-shift subtitles.srt -5
+- To shift them forward 5 seconds:
+    srt-shift subtitles.srt 5
+
+That's all there is to it.  You can find the latest version at
+<http://github.com/adeel/srt-shift>
