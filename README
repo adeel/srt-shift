@@ -12,5 +12,7 @@ Usage examples:
 srt-shift will output the new subtitles to stdout, so to save them, do:
     srt-shift subtitles.srt 5 > fixed.srt
 
+Installation:  sudo easy_install srt-shift
+
 That's all there is to it.  You can find the latest version at
 <http://github.com/adeel/srt-shift>.
