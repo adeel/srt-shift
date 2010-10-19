@@ -9,5 +9,8 @@ Usage examples:
 - To shift them forward 5 seconds:
     srt-shift subtitles.srt 5
 
+srt-shift will output the new subtitles to stdout, so to save them, do:
+    srt-shift subtitles.srt 5 > fixed.srt
+
 That's all there is to it.  You can find the latest version at
 <http://github.com/adeel/srt-shift>.
