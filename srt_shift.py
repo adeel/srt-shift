@@ -4,7 +4,7 @@ import re
 def main():
   try:
     filename = sys.argv[1]
-    shift = int(sys.argv[2])
+    shift = float(sys.argv[2])
   except IndexError, ValueError:
     print "usage: srt-shift filename shift"
     return
