@@ -38,28 +38,35 @@ def main():
                     second = int(second_parts[0])
                     microsecond = int(second_parts[1])
 
-                    return [hour, minute, second, microsecond]
+                    return (
+                        hour * 60 * 60 * 1000 +
+                        minute * 60 * 1000 +
+                        second * 1000 +
+                        microsecond
+                    )
 
                 start, end = map(parse_time, (start, end))
 
                 def shift_time(time):
-                    shift
-                    time[1] += (time[2] + shift) / 60
-                    time[2] = (time[2] + shift) % 60
-                    return time
+                    return time + shift * 1000
 
                 start, end = map(shift_time, (start, end))
 
-                out += '%s:%s:%s,%s --> %s:%s:%s,%s\n' % (
-                    str(start[0]).rjust(2, '0'),
-                    str(start[1]).rjust(2, '0'),
-                    str(start[2]).rjust(2, '0'),
-                    str(start[3]).rjust(3, '0'),
+                def get_time(time):
+                    return (
+                        time // (60 * 60 * 1000),
+                        (time % (60 * 60 * 1000)) // (60 * 1000),
+                        (time % (60 * 1000)) // 1000,
+                        time % 1000,
+                    )
 
-                    str(end[0]).rjust(2, '0'),
-                    str(end[1]).rjust(2, '0'),
-                    str(end[2]).rjust(2, '0'),
-                    str(end[3]).rjust(3, '0'))
+                def str_time(time):
+                    return '%02d:%02d:%02d,%03d' % get_time(time)
+
+                out += '%s --> %s\n' % (
+                    str_time(start),
+                    str_time(end),
+                )
 
             elif i >= 3:
                 out += '%s\n' % line
