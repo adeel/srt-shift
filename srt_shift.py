@@ -6,8 +6,8 @@ def main():
     try:
         filename = sys.argv[1]
         shift = float(sys.argv[2])
-    except IndexError, ValueError:
-        print "usage: srt-shift filename shift"
+    except (IndexError, ValueError):
+        print("usage: srt-shift filename shift")
         return
 
     out = ''
@@ -64,7 +64,7 @@ def main():
             elif i >= 3:
                 out += '%s\n' % line
 
-    print out
+    print(out)
 
 if __name__ == '__main__':
     main()
